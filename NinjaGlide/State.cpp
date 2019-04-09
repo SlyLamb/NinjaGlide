@@ -1,4 +1,3 @@
-#include <iostream>
 #include "State.hpp"
 
 using namespace std;

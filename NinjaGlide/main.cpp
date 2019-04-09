@@ -1,6 +1,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+using namespace std;
+
 #define WINDOW_WIDTH 900
 #define WINDOW_HEIGTH 800
 

@@ -1,2 +1,20 @@
-﻿  State.cpp
+﻿  Input.cpp
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\input.cpp(9): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\input.cpp(9): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+          and
+          [
+              T=int
+          ]
   NinjaGlide.vcxproj -> d:\Documents\Projects\SFML_Games\NinjaGlide\Debug\NinjaGlide.exe
