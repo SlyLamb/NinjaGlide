@@ -1,32 +1,15 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Game.hpp"
 
 using namespace std;
 
-#define WINDOW_WIDTH 900
-#define WINDOW_HEIGTH 800
-
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGT 600
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGTH), "NinjaGlide");
-
-	while (window.isOpen())
-	{
-		// events
-
-		// update
-
-		// draw
-		window.clear();
-
-		window.display();
-
-
-
-
-	}
+	NinjaGlide::Game(WINDOW_WIDTH, WINDOW_HEIGT, "NINJA GLIDE");
 
 	return EXIT_SUCCESS;
-
 }

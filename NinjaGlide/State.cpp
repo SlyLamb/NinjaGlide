@@ -4,37 +4,45 @@ using namespace std;
 
 namespace NinjaGlide
 {
-	class Menu : public IState
+	//----------------------------------------------------------------------
+	// IState class  
+	//----------------------------------------------------------------------
+
+	EState IState::GetState() 
 	{
-	public:
-		Menu() {}
-		~Menu() {}
+		return mStateEnum;
+	}
 
-		void Init() {}
-		void Update() {}
-		void Input() {}
-		void Draw(float dt) {}
-	};
-
-	class Game : public IState
+	void IState::SetState(EState stateEnum)
 	{
-		Game() {}
-		~Game() {}
+		mStateEnum = stateEnum;
+	}
 
-		void Init() {}
-		void Update() {}
-		void Input() {}
-		void Draw(float dt) {}
-	};
+	//----------------------------------------------------------------------
+	// Main Menu class
+	//----------------------------------------------------------------------
 
-	class Score : public IState
-	{
-		Score() {}
-		~Score() {}
+	void Menu::Init() {}
+	void Menu::Update(float dt) {}
+	void Menu::Input() {}
+	void Menu::Draw(float dt) {}
+	
 
-		void Init() {}
-		void Update() {}
-		void Input() {}
-		void Draw(float dt) {}
-	};
+	//----------------------------------------------------------------------
+	// In Game class
+	//----------------------------------------------------------------------
+
+	void InGame::Init() {}
+	void InGame::Update(float dt) {}
+	void InGame::Input() {}
+	void InGame::Draw(float dt) {}
+
+	//----------------------------------------------------------------------
+	// Game Over and final score class
+	//----------------------------------------------------------------------
+
+	void Score::Init() {}
+	void Score::Update(float dt) {}
+	void Score::Input() {}
+	void Score::Draw(float dt) {}
 }
