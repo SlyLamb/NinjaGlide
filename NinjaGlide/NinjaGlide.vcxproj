@@ -131,9 +131,56 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asset.hpp" />
+    <ClInclude Include="Def.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="State.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\BG_Game.png" />
+    <Image Include="Resources\BG_Menu.png" />
+    <Image Include="Resources\BG_Score.png" />
+    <Image Include="Resources\IdleSange_0.png" />
+    <Image Include="Resources\IdleSange_1.png" />
+    <Image Include="Resources\IdleSange_2.png" />
+    <Image Include="Resources\IdleSange_3.png" />
+    <Image Include="Resources\IdleSange_4.png" />
+    <Image Include="Resources\IdleSange_5.png" />
+    <Image Include="Resources\IdleSange_6.png" />
+    <Image Include="Resources\IdleSange_7.png" />
+    <Image Include="Resources\IdleSange_8.png" />
+    <Image Include="Resources\IdleSange_9.png" />
+    <Image Include="Resources\IdleYasha_0.png" />
+    <Image Include="Resources\IdleYasha_1.png" />
+    <Image Include="Resources\IdleYasha_2.png" />
+    <Image Include="Resources\IdleYasha_3.png" />
+    <Image Include="Resources\IdleYasha_4.png" />
+    <Image Include="Resources\IdleYasha_5.png" />
+    <Image Include="Resources\IdleYasha_6.png" />
+    <Image Include="Resources\IdleYasha_7.png" />
+    <Image Include="Resources\IdleYasha_8.png" />
+    <Image Include="Resources\IdleYasha_9.png" />
+    <Image Include="Resources\Kunai.png" />
+    <Image Include="Resources\Sange_0.png" />
+    <Image Include="Resources\Sange_1.png" />
+    <Image Include="Resources\Sange_2.png" />
+    <Image Include="Resources\Sange_3.png" />
+    <Image Include="Resources\Sange_4.png" />
+    <Image Include="Resources\Sange_5.png" />
+    <Image Include="Resources\Sange_6.png" />
+    <Image Include="Resources\Sange_7.png" />
+    <Image Include="Resources\Sange_8.png" />
+    <Image Include="Resources\Sange_9.png" />
+    <Image Include="Resources\Yasha_0.png" />
+    <Image Include="Resources\Yasha_1.png" />
+    <Image Include="Resources\Yasha_2.png" />
+    <Image Include="Resources\Yasha_3.png" />
+    <Image Include="Resources\Yasha_4.png" />
+    <Image Include="Resources\Yasha_5.png" />
+    <Image Include="Resources\Yasha_6.png" />
+    <Image Include="Resources\Yasha_7.png" />
+    <Image Include="Resources\Yasha_8.png" />
+    <Image Include="Resources\Yasha_9.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

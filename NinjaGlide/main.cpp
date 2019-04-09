@@ -1,11 +1,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
+#include "Def.hpp"
 
 using namespace std;
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGT 600
 
 int main()
 {
