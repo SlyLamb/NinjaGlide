@@ -59,12 +59,12 @@ namespace NinjaGlide
 
 			while (totalTime >= dt) 
 			{
-				mState->Input();
+				mState->Input(window);
 				mState->Update(dt);
 				totalTime -= dt;
 			}
 			interpolation = totalTime / dt;
-			mState->Draw(interpolation);
+			mState->Draw(interpolation, window);
 		}
 	}
 }

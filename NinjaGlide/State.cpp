@@ -1,4 +1,5 @@
 #include "State.hpp"
+#include "Def.hpp"
 
 using namespace std;
 
@@ -22,10 +23,32 @@ namespace NinjaGlide
 	// Main Menu class
 	//----------------------------------------------------------------------
 
-	void Menu::Init() {}
+	void Menu::Init() 
+	{
+		mAsset.LoadTexture("MainMenu", BG_MENU_FILEPATH);
+		background.setTexture(mAsset.GetTexture("MainMenu"));
+	}
+
 	void Menu::Update(float dt) {}
-	void Menu::Input() {}
-	void Menu::Draw(float dt) {}
+
+	void Menu::Input(sf::RenderWindow &mWindow)
+	{
+		sf::Event e;
+		while (mWindow.pollEvent(e)) 
+		{
+			if (e.type == sf::Event::Closed)
+			{
+				mWindow.close();
+			}
+		}
+	}
+
+	void Menu::Draw(float dt, sf::RenderWindow &mWindow)
+	{
+		mWindow.clear();
+		mWindow.draw(background);
+		mWindow.display();
+	}
 	
 
 	//----------------------------------------------------------------------
@@ -34,8 +57,8 @@ namespace NinjaGlide
 
 	void InGame::Init() {}
 	void InGame::Update(float dt) {}
-	void InGame::Input() {}
-	void InGame::Draw(float dt) {}
+	void InGame::Input(sf::RenderWindow &mWindow) {}
+	void InGame::Draw(float dt, sf::RenderWindow &mWindow) {}
 
 	//----------------------------------------------------------------------
 	// Game Over and final score class
@@ -43,6 +66,6 @@ namespace NinjaGlide
 
 	void Score::Init() {}
 	void Score::Update(float dt) {}
-	void Score::Input() {}
-	void Score::Draw(float dt) {}
+	void Score::Input(sf::RenderWindow &mWindow) {}
+	void Score::Draw(float dt, sf::RenderWindow &mWindow) {}
 }

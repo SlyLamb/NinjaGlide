@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Asset.hpp"
+#include "Input.hpp"
 
 namespace NinjaGlide
 {
@@ -19,14 +21,16 @@ namespace NinjaGlide
 	{
 	protected:
 		EState mStateEnum;
+		Asset mAsset;
+		Input mInput;
 	public:
 		IState() {}
 		virtual ~IState() {}
 
 		virtual void Init() = 0;
 		virtual void Update(float dt) = 0;
-		virtual void Input() = 0;
-		virtual void Draw(float dt) = 0;
+		virtual void Input(sf::RenderWindow &mWindow) = 0;
+		virtual void Draw(float dt, sf::RenderWindow &mWindow) = 0;
 
 		EState GetState();
 		void SetState(EState stateEnum);
@@ -38,14 +42,17 @@ namespace NinjaGlide
 
 	class Menu : public IState
 	{
+	private:
+		sf::Sprite background;
+
 	public:
-		Menu(EState stateEnum) { mStateEnum = stateEnum; }
+		Menu(EState stateEnum) { mStateEnum = stateEnum; Init(); }
 		~Menu() {}
 
 		void Init();
 		void Update(float dt);
-		void Input();
-		void Draw(float dt);
+		void Input(sf::RenderWindow &mWindow);
+		void Draw(float dt, sf::RenderWindow &mWindow);
 	};
 
 	//----------------------------------------------------------------------
@@ -60,8 +67,8 @@ namespace NinjaGlide
 
 		void Init();
 		void Update(float dt);
-		void Input();
-		void Draw(float dt);
+		void Input(sf::RenderWindow &mWindow);
+		void Draw(float dt, sf::RenderWindow &mWindow);
 	};
 
 	//----------------------------------------------------------------------
@@ -76,8 +83,8 @@ namespace NinjaGlide
 
 		void Init();
 		void Update(float dt);
-		void Input();
-		void Draw(float dt);
+		void Input(sf::RenderWindow &mWindow);
+		void Draw(float dt, sf::RenderWindow &mWindow);
 	};
 
 }

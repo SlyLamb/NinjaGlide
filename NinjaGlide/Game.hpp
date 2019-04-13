@@ -13,8 +13,8 @@ namespace NinjaGlide
 		const float dt = (1.0f / 60.0f);
 		sf::RenderWindow window;
 		IState *mState;
-		Asset mAsset;
-		Input mInput;
+		//Asset mAsset;
+		//Input mInput;
 		bool stateChanged;
 
 	public:
