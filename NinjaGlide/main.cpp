@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Game.hpp"
 #include "Def.hpp"
+#include <vector>
 
 using namespace std;
 

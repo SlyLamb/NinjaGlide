@@ -1,5 +1,4 @@
 #include "State.hpp"
-#include "Def.hpp"
 
 using namespace std;
 
@@ -104,6 +103,10 @@ namespace NinjaGlide
 	{
 		mAsset.LoadTexture("InGame", BG_GAME_FILEPATH);
 		background.setTexture(mAsset.GetTexture("InGame"));
+
+		mAsset.LoadTexture("Projectile", PROJECTILE_FILEPATH);
+
+		mProjectile = new Projectile();
 	}
 
 	void InGame::Update(float dt) {}
@@ -125,6 +128,7 @@ namespace NinjaGlide
 	{
 		mWindow.clear();
 		mWindow.draw(background);
+		mProjectile->DrawProjectiles(mWindow);
 		mWindow.display();
 	}
 

@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 #include "Asset.hpp"
 #include "Input.hpp"
+#include "Projectile.hpp"
+#include "Def.hpp"
 
 namespace NinjaGlide
 {
@@ -32,6 +34,7 @@ namespace NinjaGlide
 		Asset mAsset;
 		Input mInput;
 		bool stateChanged;
+
 	public:
 		IState() {}
 		virtual ~IState() {}
@@ -60,7 +63,7 @@ namespace NinjaGlide
 		sf::Sprite ninjaGirl;
 
 	public:
-		Menu(EState stateEnum) { mStateEnum = stateEnum; mPlayer = EPlayer::NONE, Init(); }
+		Menu(EState stateEnum) { mStateEnum = stateEnum; mPlayer = EPlayer::NONE; Menu::Init(); }
 		~Menu() {}
 
 		void Init();
@@ -78,9 +81,10 @@ namespace NinjaGlide
 	private:
 		sf::Sprite background;
 		sf::Sprite player;
-		sf::Sprite projectile[10];
+		Projectile *mProjectile;
+
 	public:
-		InGame(EState stateEnum) { mStateEnum = stateEnum; Init(); }
+		InGame(EState stateEnum) { mStateEnum = stateEnum; InGame::Init(); }
 		~InGame() {}
 
 		void Init();
@@ -98,7 +102,7 @@ namespace NinjaGlide
 	private:
 		sf::Sprite background;
 	public:
-		Score(EState stateEnum) { mStateEnum = stateEnum; Init();}
+		Score(EState stateEnum) { mStateEnum = stateEnum; Score::Init();}
 		~Score() {}
 
 		void Init();

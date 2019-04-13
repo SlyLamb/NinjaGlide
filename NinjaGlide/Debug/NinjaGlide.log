@@ -1,2 +1,6 @@
-﻿  State.cpp
+﻿  Game.cpp
+  main.cpp
+  Projectile.cpp
+  State.cpp
+  Generating Code...
   NinjaGlide.vcxproj -> d:\Documents\Projects\SFML_Games\NinjaGlide\Debug\NinjaGlide.exe
