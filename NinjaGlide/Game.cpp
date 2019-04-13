@@ -6,13 +6,13 @@ namespace NinjaGlide
 	{
 		window.create(sf::VideoMode(mWidth, mHeight), mTitle, sf::Style::Close | sf::Style::Titlebar);
 		this->mState = new Menu(EState::MENU);
-		this->stateChanged = true;
+		this->mState->stateChange();
 		this->RunGame();
 	}
 
 	void Game::StateChanges()
 	{
-		if (stateChanged == false) 
+		if (!mState->hasStateChanged()) 
 		{
 			return;	// exit function
 		}
@@ -33,7 +33,6 @@ namespace NinjaGlide
 			mState = new Score(currentStateEnum);
 			break;
 		}
-		stateChanged = false;
 	}
 
 	void Game::RunGame() 

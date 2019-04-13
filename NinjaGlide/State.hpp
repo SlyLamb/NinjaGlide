@@ -17,12 +17,21 @@ namespace NinjaGlide
 		SCORE = 2
 	};
 
+	enum EPlayer
+	{
+		SANGE = 0,
+		YASHA = 1,
+		NONE = 2
+	};
+
 	class IState
 	{
 	protected:
 		EState mStateEnum;
+		EPlayer mPlayer;
 		Asset mAsset;
 		Input mInput;
+		bool stateChanged;
 	public:
 		IState() {}
 		virtual ~IState() {}
@@ -34,6 +43,8 @@ namespace NinjaGlide
 
 		EState GetState();
 		void SetState(EState stateEnum);
+		bool hasStateChanged();
+		void stateChange();
 	};
 
 	//----------------------------------------------------------------------
@@ -44,9 +55,12 @@ namespace NinjaGlide
 	{
 	private:
 		sf::Sprite background;
+		sf::Sprite title;
+		sf::Sprite ninjaBoy;
+		sf::Sprite ninjaGirl;
 
 	public:
-		Menu(EState stateEnum) { mStateEnum = stateEnum; Init(); }
+		Menu(EState stateEnum) { mStateEnum = stateEnum; mPlayer = EPlayer::NONE, Init(); }
 		~Menu() {}
 
 		void Init();
@@ -61,8 +75,12 @@ namespace NinjaGlide
 
 	class InGame : public IState
 	{
+	private:
+		sf::Sprite background;
+		sf::Sprite player;
+		sf::Sprite projectile[10];
 	public:
-		InGame(EState stateEnum) { mStateEnum = stateEnum; }
+		InGame(EState stateEnum) { mStateEnum = stateEnum; Init(); }
 		~InGame() {}
 
 		void Init();
@@ -77,8 +95,10 @@ namespace NinjaGlide
 
 	class Score : public IState
 	{
+	private:
+		sf::Sprite background;
 	public:
-		Score(EState stateEnum) { mStateEnum = stateEnum; }
+		Score(EState stateEnum) { mStateEnum = stateEnum; Init();}
 		~Score() {}
 
 		void Init();

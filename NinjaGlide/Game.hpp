@@ -15,7 +15,7 @@ namespace NinjaGlide
 		IState *mState;
 		//Asset mAsset;
 		//Input mInput;
-		bool stateChanged;
+		//bool stateChanged;
 
 	public:
 		Game(int mWidth, int mHeight, string mTitle);
