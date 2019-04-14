@@ -85,7 +85,7 @@ namespace NinjaGlide
 
 	public:
 		InGame(EState stateEnum) { mStateEnum = stateEnum; InGame::Init(); }
-		~InGame() {}
+		~InGame() { delete mProjectile; }
 
 		void Init();
 		void Update(float dt);

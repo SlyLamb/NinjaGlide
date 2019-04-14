@@ -109,7 +109,10 @@ namespace NinjaGlide
 		mProjectile = new Projectile();
 	}
 
-	void InGame::Update(float dt) {}
+	void InGame::Update(float dt) 
+	{
+		mProjectile->MoveProjectile(dt);
+	}
 
 	void InGame::Input(sf::RenderWindow &mWindow) 
 	{
@@ -120,7 +123,12 @@ namespace NinjaGlide
 			{
 				mWindow.close();
 			}
-			
+			// TEST CODE ---------------------------
+			if (mInput.IsObjectClicked(background, sf::Mouse::Left, mWindow))
+			{
+				mProjectile->SpawnProjectile(mAsset, mWindow);
+			}
+			// ---------------------------------------
 		}
 	}
 
