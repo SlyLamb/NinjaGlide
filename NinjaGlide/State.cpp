@@ -46,8 +46,8 @@ namespace NinjaGlide
 	{
 		mAsset.LoadTexture("MainMenu", BG_MENU_FILEPATH);
 		mAsset.LoadTexture("Title", TITLE_FILEPATH);
-		mAsset.LoadTexture("IdleSange", IDLE_SANGE_FRAME_0);
-		mAsset.LoadTexture("IdleYasha", IDLE_YASHA_FRAME_0);
+		mAsset.LoadTexture("IdleSange", IDLE_SANGE);
+		mAsset.LoadTexture("IdleYasha", IDLE_YASHA);
 
 		background.setTexture(mAsset.GetTexture("MainMenu"));
 		title.setTexture(mAsset.GetTexture("Title"));

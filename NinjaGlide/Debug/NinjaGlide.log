@@ -1,7 +1,4 @@
-﻿  Game.cpp
-d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Player.cpp
-  Projectile.cpp
+﻿  Projectile.cpp
 d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.cpp(15): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.cpp(18): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
@@ -10,9 +7,4 @@ d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.cpp(18): warni
               T=unsigned int
           ]
 d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.cpp(19): warning C4305: 'argument': truncation from 'double' to 'float'
-  State.cpp
-d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(19): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Generating Code...
   NinjaGlide.vcxproj -> d:\Documents\Projects\SFML_Games\NinjaGlide\Debug\NinjaGlide.exe

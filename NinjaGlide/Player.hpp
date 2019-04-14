@@ -21,6 +21,8 @@ namespace NinjaGlide
 
 		void Draw(sf::RenderWindow &mWindow);
 		void Animate(float dt);
+		//void Update(float dt);
+		//void Tap();
 	};
 }
 
