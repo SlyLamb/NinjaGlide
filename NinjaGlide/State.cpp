@@ -112,7 +112,26 @@ namespace NinjaGlide
 		mAsset.LoadTexture("Projectile", PROJECTILE_FILEPATH);
 
 		mAsset.LoadTexture("Sange0", SANGE_FRAME_0);
+		mAsset.LoadTexture("Sange1", SANGE_FRAME_1);
+		mAsset.LoadTexture("Sange2", SANGE_FRAME_2);
+		mAsset.LoadTexture("Sange3", SANGE_FRAME_3);
+		mAsset.LoadTexture("Sange4", SANGE_FRAME_4);
+		mAsset.LoadTexture("Sange5", SANGE_FRAME_5);
+		mAsset.LoadTexture("Sange6", SANGE_FRAME_6);
+		mAsset.LoadTexture("Sange7", SANGE_FRAME_7);
+		mAsset.LoadTexture("Sange8", SANGE_FRAME_8);
+		mAsset.LoadTexture("Sange9", SANGE_FRAME_9);
+
 		mAsset.LoadTexture("Yasha0", YASHA_FRAME_0);
+		mAsset.LoadTexture("Yasha1", YASHA_FRAME_1);
+		mAsset.LoadTexture("Yasha2", YASHA_FRAME_2);
+		mAsset.LoadTexture("Yasha3", YASHA_FRAME_3);
+		mAsset.LoadTexture("Yasha4", YASHA_FRAME_4);
+		mAsset.LoadTexture("Yasha5", YASHA_FRAME_5);
+		mAsset.LoadTexture("Yasha6", YASHA_FRAME_6);
+		mAsset.LoadTexture("Yasha7", YASHA_FRAME_7);
+		mAsset.LoadTexture("Yasha8", YASHA_FRAME_8);
+		mAsset.LoadTexture("Yasha9", YASHA_FRAME_9);
 
 		mProjectile = new Projectile();
 
@@ -135,6 +154,7 @@ namespace NinjaGlide
 			mProjectile->SpawnProjectile(mAsset, mWindow);
 			clock.restart();
 		}
+		player->Animate(dt);
 	}
 
 	void InGame::Input(sf::RenderWindow &mWindow) 

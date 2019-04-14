@@ -56,6 +56,7 @@
 
 #define DEAD_YASHA "Resources/DeadYasha.png"
 
+#define ANIMATION_RATE 1.0f
 #define PROJECTILE_FILEPATH "Resources/Projectile.png"
 #define PROJECTILE_VELOCITY 190.0f
 #define PROJECTILE_FREQ 1.16f
