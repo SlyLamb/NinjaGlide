@@ -14,6 +14,8 @@ namespace NinjaGlide
 		std::vector<sf::Texture> animationFrames;
 		unsigned int It;
 		sf::Clock mClock;
+		sf::Clock glideClock;
+		bool falling;
 
 	public:
 		Player(Asset &asset, bool playerChoice);
@@ -21,8 +23,9 @@ namespace NinjaGlide
 
 		void Draw(sf::RenderWindow &mWindow);
 		void Animate(float dt);
-		//void Update(float dt);
-		//void Tap();
+		void Update(float dt);
+		void Fly();
+		bool IsFalling();
 	};
 }
 

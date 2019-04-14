@@ -8,9 +8,9 @@
 #define BG_GAME_FILEPATH "Resources/BG_Game.png"
 #define BG_SCORE_FILEPATH "Resources/BG_Score.png"
 
-#define GRAVITY 350.0f
-#define GLIDE_VELOCITY 350.0f
-#define GLIDE_RATE 0.25f
+#define GRAVITY 85.0f
+#define GLIDE_VELOCITY -80.0f
+#define GLIDE_TIME 0.3f
 
 #define IDLE_SANGE "Resources/IdleSange.png"
 

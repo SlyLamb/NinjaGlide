@@ -38,6 +38,9 @@ namespace NinjaGlide
 
 		playerSprite.setScale(0.25, 0.25);
 
+		playerSprite.setPosition(WINDOW_WIDTH / 5, 10);
+		
+		falling = true;
 	}
 
 	void Player::Draw(sf::RenderWindow &mWindow)
@@ -60,5 +63,35 @@ namespace NinjaGlide
 			playerSprite.setTexture(animationFrames.at(It));
 			mClock.restart();
 		}
+	}
+
+	bool Player::IsFalling()
+	{
+		if (falling) { return true; }
+		return false;
+	}
+
+	void Player::Update(float dt)
+	{
+		if (IsFalling()) 
+		{
+			playerSprite.move(0, GRAVITY * dt);
+		}
+		else
+		{
+			playerSprite.move(0, GLIDE_VELOCITY * dt);
+		}
+
+		if (glideClock.getElapsedTime().asSeconds() > GLIDE_TIME)
+		{
+			glideClock.restart();
+			falling = true;
+		}
+	}
+
+	void Player::Fly()
+	{
+		glideClock.restart();
+		falling = false;
 	}
 }

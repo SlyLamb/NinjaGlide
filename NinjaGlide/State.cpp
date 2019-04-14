@@ -155,6 +155,7 @@ namespace NinjaGlide
 			clock.restart();
 		}
 		player->Animate(dt);
+		player->Update(dt);
 	}
 
 	void InGame::Input(sf::RenderWindow &mWindow) 
@@ -166,7 +167,10 @@ namespace NinjaGlide
 			{
 				mWindow.close();
 			}
-
+			if (mInput.IsObjectClicked(background, sf::Mouse::Left, mWindow))
+			{
+				player->Fly();
+			}
 		}
 	}
 
