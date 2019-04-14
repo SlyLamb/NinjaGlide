@@ -13,10 +13,10 @@ namespace NinjaGlide
 	void Projectile::SpawnProjectile(Asset &asset, sf::RenderWindow &mWindow)
 	{
 		float randNum = rand() % 550 + 15;
-		std::cout << randNum << endl;
 
 		sf::Sprite mSprite(asset.GetTexture("Projectile"));
 		mSprite.setPosition(mWindow.getSize().x, randNum);
+		mSprite.setScale(0.9, 0.9);
 	
 		projectiles.push_back(mSprite);
 	}
@@ -25,9 +25,14 @@ namespace NinjaGlide
 	{
 		for (unsigned int i = 0; i < projectiles.size(); ++i)
 		{
-			sf::Vector2f position = projectiles.at(i).getPosition();
-			float velocity = PROJECTILE_VELOCITY * dt;
-			projectiles.at(i).move(-velocity, 0);
+			if(projectiles.at(i).getPosition().x < 0 - projectiles.at(i).getGlobalBounds().width)
+			{
+				projectiles.erase(projectiles.begin() + i);
+			}
+			else {
+				float velocity = PROJECTILE_VELOCITY * dt;
+				projectiles.at(i).move(-velocity, 0);
+			}
 		}
 	}
 

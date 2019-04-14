@@ -40,7 +40,7 @@ namespace NinjaGlide
 		virtual ~IState() {}
 
 		virtual void Init() = 0;
-		virtual void Update(float dt) = 0;
+		virtual void Update(float dt, sf::RenderWindow &mWindow) = 0;
 		virtual void Input(sf::RenderWindow &mWindow) = 0;
 		virtual void Draw(float dt, sf::RenderWindow &mWindow) = 0;
 
@@ -67,7 +67,7 @@ namespace NinjaGlide
 		~Menu() {}
 
 		void Init();
-		void Update(float dt);
+		void Update(float dt, sf::RenderWindow &mWindow);
 		void Input(sf::RenderWindow &mWindow);
 		void Draw(float dt, sf::RenderWindow &mWindow);
 	};
@@ -82,13 +82,14 @@ namespace NinjaGlide
 		sf::Sprite background;
 		sf::Sprite player;
 		Projectile *mProjectile;
+		sf::Clock clock;
 
 	public:
 		InGame(EState stateEnum) { mStateEnum = stateEnum; InGame::Init(); }
 		~InGame() { delete mProjectile; }
 
 		void Init();
-		void Update(float dt);
+		void Update(float dt, sf::RenderWindow &mWindow);
 		void Input(sf::RenderWindow &mWindow);
 		void Draw(float dt, sf::RenderWindow &mWindow);
 	};
@@ -106,7 +107,7 @@ namespace NinjaGlide
 		~Score() {}
 
 		void Init();
-		void Update(float dt);
+		void Update(float dt, sf::RenderWindow &mWindow);
 		void Input(sf::RenderWindow &mWindow);
 		void Draw(float dt, sf::RenderWindow &mWindow);
 	};

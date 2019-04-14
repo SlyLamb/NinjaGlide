@@ -58,7 +58,7 @@ namespace NinjaGlide
 		ninjaGirl.setPosition((WINDOW_WIDTH / 4) * 2.5, (WINDOW_HEIGT / 2) - 30);
 	}
 
-	void Menu::Update(float dt) {}
+	void Menu::Update(float dt, sf::RenderWindow &mWindow) {}
 
 	void Menu::Input(sf::RenderWindow &mWindow)
 	{
@@ -109,9 +109,14 @@ namespace NinjaGlide
 		mProjectile = new Projectile();
 	}
 
-	void InGame::Update(float dt) 
+	void InGame::Update(float dt, sf::RenderWindow &mWindow)
 	{
 		mProjectile->MoveProjectile(dt);
+		if(clock.getElapsedTime().asSeconds() > PROJECTILE_FREQ)
+		{
+			mProjectile->SpawnProjectile(mAsset, mWindow);
+			clock.restart();
+		}
 	}
 
 	void InGame::Input(sf::RenderWindow &mWindow) 
@@ -123,12 +128,7 @@ namespace NinjaGlide
 			{
 				mWindow.close();
 			}
-			// TEST CODE ---------------------------
-			if (mInput.IsObjectClicked(background, sf::Mouse::Left, mWindow))
-			{
-				mProjectile->SpawnProjectile(mAsset, mWindow);
-			}
-			// ---------------------------------------
+
 		}
 	}
 
@@ -150,7 +150,7 @@ namespace NinjaGlide
 		background.setTexture(mAsset.GetTexture("Score"));
 	}
 
-	void Score::Update(float dt) {}
+	void Score::Update(float dt, sf::RenderWindow &mWindow) {}
 
 	void Score::Input(sf::RenderWindow &mWindow) 
 	{
