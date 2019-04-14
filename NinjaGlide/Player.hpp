@@ -16,6 +16,7 @@ namespace NinjaGlide
 		sf::Clock mClock;
 		sf::Clock glideClock;
 		bool falling;
+		bool dead;
 
 	public:
 		Player(Asset &asset, bool playerChoice);
@@ -26,6 +27,7 @@ namespace NinjaGlide
 		void Update(float dt);
 		void Fly();
 		bool IsFalling();
+		bool IsDead();
 	};
 }
 

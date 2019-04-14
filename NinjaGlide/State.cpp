@@ -156,6 +156,12 @@ namespace NinjaGlide
 		}
 		player->Animate(dt);
 		player->Update(dt);
+
+		if (player->IsDead()) 
+		{
+			mStateEnum = EState::SCORE;
+			stateChanged = true;
+		}
 	}
 
 	void InGame::Input(sf::RenderWindow &mWindow) 
