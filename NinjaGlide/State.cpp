@@ -33,6 +33,11 @@ namespace NinjaGlide
 		stateChanged = true;
 	}
 
+	EPlayer IState::GetPlayer()
+	{
+		return mPlayer;
+	}
+
 	//----------------------------------------------------------------------
 	// Main Menu class
 	//----------------------------------------------------------------------
@@ -106,7 +111,20 @@ namespace NinjaGlide
 
 		mAsset.LoadTexture("Projectile", PROJECTILE_FILEPATH);
 
+		mAsset.LoadTexture("Sange0", SANGE_FRAME_0);
+		mAsset.LoadTexture("Yasha0", YASHA_FRAME_0);
+
 		mProjectile = new Projectile();
+
+		if(mPlayer == EPlayer::SANGE)
+		{
+			player = new Player(mAsset, true);
+		}
+		else 
+		{
+			player = new Player(mAsset, false);
+		}
+		
 	}
 
 	void InGame::Update(float dt, sf::RenderWindow &mWindow)
@@ -136,6 +154,7 @@ namespace NinjaGlide
 	{
 		mWindow.clear();
 		mWindow.draw(background);
+		player->Draw(mWindow);
 		mProjectile->DrawProjectiles(mWindow);
 		mWindow.display();
 	}

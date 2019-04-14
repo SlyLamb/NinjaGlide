@@ -16,7 +16,7 @@ namespace NinjaGlide
 		{
 			return;	// exit function
 		}
-
+		EPlayer temp = EPlayer::NONE;
 		EState currentStateEnum = mState->GetState();
 		switch (currentStateEnum) 
 		{
@@ -25,8 +25,9 @@ namespace NinjaGlide
 			mState = new Menu(currentStateEnum);
 			break;
 		case EState::GAME:
+			temp = mState->GetPlayer();
 			delete mState;
-			mState = new InGame(currentStateEnum);
+			mState = new InGame(currentStateEnum, temp);
 			break;
 		case EState::SCORE:
 			delete mState;

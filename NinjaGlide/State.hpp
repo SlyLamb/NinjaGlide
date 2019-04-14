@@ -5,6 +5,7 @@
 #include "Input.hpp"
 #include "Projectile.hpp"
 #include "Def.hpp"
+#include "Player.hpp"
 
 namespace NinjaGlide
 {
@@ -30,10 +31,10 @@ namespace NinjaGlide
 	{
 	protected:
 		EState mStateEnum;
-		EPlayer mPlayer;
 		Asset mAsset;
 		Input mInput;
 		bool stateChanged;
+		EPlayer mPlayer;
 
 	public:
 		IState() {}
@@ -48,6 +49,7 @@ namespace NinjaGlide
 		void SetState(EState stateEnum);
 		bool hasStateChanged();
 		void stateChange();
+		EPlayer GetPlayer();
 	};
 
 	//----------------------------------------------------------------------
@@ -63,7 +65,7 @@ namespace NinjaGlide
 		sf::Sprite ninjaGirl;
 
 	public:
-		Menu(EState stateEnum) { mStateEnum = stateEnum; mPlayer = EPlayer::NONE; Menu::Init(); }
+		Menu(EState stateEnum) { mStateEnum = stateEnum; Menu::Init(); }
 		~Menu() {}
 
 		void Init();
@@ -80,12 +82,12 @@ namespace NinjaGlide
 	{
 	private:
 		sf::Sprite background;
-		sf::Sprite player;
+		Player *player;
 		Projectile *mProjectile;
 		sf::Clock clock;
 
 	public:
-		InGame(EState stateEnum) { mStateEnum = stateEnum; InGame::Init(); }
+		InGame(EState stateEnum, EPlayer playerChoice) { mStateEnum = stateEnum; mPlayer = playerChoice; InGame::Init(); }
 		~InGame() { delete mProjectile; }
 
 		void Init();

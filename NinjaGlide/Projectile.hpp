@@ -3,7 +3,8 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "Asset.hpp"
-#include <random>
+#include <stdlib.h>
+#include <time.h>
 #include "Def.hpp"
 
 
