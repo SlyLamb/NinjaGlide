@@ -9,7 +9,7 @@
 #define BG_SCORE_FILEPATH "Resources/BG_Score.png"
 
 #define GRAVITY 85.0f
-#define GLIDE_VELOCITY -80.0f
+#define GLIDE_VELOCITY -60.0f
 #define GLIDE_TIME 0.3f
 
 #define IDLE_SANGE "Resources/IdleSange.png"
@@ -44,5 +44,7 @@
 
 #define ANIMATION_RATE 1.0f
 #define PROJECTILE_FILEPATH "Resources/Projectile.png"
-#define PROJECTILE_VELOCITY 190.0f
+#define PROJECTILE_VELOCITY 205.0f
 #define PROJECTILE_FREQ 1.16f
+
+#define ARIAL_FILEPATH "Resources/arial.ttf"

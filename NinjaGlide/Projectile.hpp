@@ -15,9 +15,10 @@ namespace NinjaGlide
 	{
 	private:
 		std::vector<sf::Sprite> projectiles;
+		int scoreCounter;
 
 	public:
-		Projectile(){ srand(time(0)); }
+		Projectile() { srand(time(0)); scoreCounter = 0; }
 		~Projectile(){}
 
 		void SpawnProjectile(Asset &asset, sf::RenderWindow &mWindow);
@@ -25,6 +26,9 @@ namespace NinjaGlide
 		void DrawProjectiles(sf::RenderWindow &mWindow);
 
 		const std::vector<sf::Sprite> &GetSprites() const;
+
+		void ScoreUp();
+		int GetScore();
 	};
 
 }

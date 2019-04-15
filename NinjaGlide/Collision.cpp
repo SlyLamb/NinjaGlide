@@ -10,7 +10,7 @@ namespace NinjaGlide
 		sf::Rect<float> rectB = spriteB.getGlobalBounds();
 
 		rectA.height *= 0.8;
-		rectA.width *= 0.8;
+		rectA.width *= 0.7;
 
 		rectB.height *= 0.5;
 		rectB.width *= 0.5;

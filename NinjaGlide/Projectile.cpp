@@ -28,6 +28,7 @@ namespace NinjaGlide
 			if(projectiles.at(i).getPosition().x < 0 - projectiles.at(i).getGlobalBounds().width)
 			{
 				projectiles.erase(projectiles.begin() + i);
+				ScoreUp();
 			}
 			else {
 				float velocity = PROJECTILE_VELOCITY * dt;
@@ -40,4 +41,15 @@ namespace NinjaGlide
 	{
 		return projectiles;
 	}
+
+	void Projectile::ScoreUp()
+	{
+		++scoreCounter;
+	}
+	
+	int Projectile::GetScore()
+	{
+		return scoreCounter;
+	}
+
 }

@@ -143,7 +143,13 @@ namespace NinjaGlide
 		{
 			player = new Player(mAsset, false);
 		}
-		
+
+		mAsset.LoadFont("Arial", ARIAL_FILEPATH);
+		scoreTxt.setFont(mAsset.GetFont("Arial"));
+		scoreTxt.setString("0");
+		scoreTxt.setCharacterSize(20);
+		scoreTxt.setFillColor(sf::Color::White);
+		scoreTxt.setPosition(5,5);
 	}
 
 	void InGame::Update(float dt, sf::RenderWindow &mWindow)
@@ -172,6 +178,9 @@ namespace NinjaGlide
 			mStateEnum = EState::SCORE;
 			stateChanged = true;
 		}
+		mScore = mProjectile->GetScore();
+		tempScore = to_string(mScore);
+		scoreTxt.setString("SCORE: " + tempScore);
 	}
 
 	void InGame::Input(sf::RenderWindow &mWindow) 
@@ -196,6 +205,7 @@ namespace NinjaGlide
 		mWindow.draw(background);
 		player->Draw(mWindow);
 		mProjectile->DrawProjectiles(mWindow);
+		mWindow.draw(scoreTxt);
 		mWindow.display();
 	}
 

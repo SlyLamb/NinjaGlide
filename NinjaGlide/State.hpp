@@ -87,9 +87,12 @@ namespace NinjaGlide
 		Projectile *mProjectile;
 		sf::Clock clock;
 		Collision mCollision;
+		int mScore;
+		string tempScore;
+		sf::Text scoreTxt;
 
 	public:
-		InGame(EState stateEnum, EPlayer playerChoice) { mStateEnum = stateEnum; mPlayer = playerChoice; InGame::Init(); }
+		InGame(EState stateEnum, EPlayer playerChoice) { mStateEnum = stateEnum; mPlayer = playerChoice; mScore = 0; InGame::Init(); }
 		~InGame() { delete mProjectile; }
 
 		void Init();
