@@ -255,7 +255,12 @@ namespace NinjaGlide
 			{
 				mWindow.close();
 			}
-
+			if (mInput.IsObjectClicked(playerSprite, sf::Mouse::Left, mWindow))
+			{
+				mPlayer = EPlayer::NONE;
+				mStateEnum = EState::MENU;
+				stateChanged = true;
+			}
 		}
 	}
 

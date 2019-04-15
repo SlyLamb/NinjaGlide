@@ -44,7 +44,7 @@
 
 #define ANIMATION_RATE 1.0f
 #define PROJECTILE_FILEPATH "Resources/Projectile.png"
-#define PROJECTILE_VELOCITY 205.0f
-#define PROJECTILE_FREQ 1.16f
+#define PROJECTILE_VELOCITY 190.0f
+#define PROJECTILE_FREQ 0.7f
 
 #define ARIAL_FILEPATH "Resources/arial.ttf"
