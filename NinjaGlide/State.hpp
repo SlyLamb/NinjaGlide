@@ -36,6 +36,8 @@ namespace NinjaGlide
 		Input mInput;
 		bool stateChanged;
 		EPlayer mPlayer;
+		string tempScore;
+		sf::Text scoreTxt;
 
 	public:
 		IState() {}
@@ -51,6 +53,7 @@ namespace NinjaGlide
 		bool hasStateChanged();
 		void stateChange();
 		EPlayer GetPlayer();
+		string GetScore();
 	};
 
 	//----------------------------------------------------------------------
@@ -88,8 +91,7 @@ namespace NinjaGlide
 		sf::Clock clock;
 		Collision mCollision;
 		int mScore;
-		string tempScore;
-		sf::Text scoreTxt;
+		
 
 	public:
 		InGame(EState stateEnum, EPlayer playerChoice) { mStateEnum = stateEnum; mPlayer = playerChoice; mScore = 0; InGame::Init(); }
@@ -109,8 +111,10 @@ namespace NinjaGlide
 	{
 	private:
 		sf::Sprite background;
+		sf::Sprite playerSprite;
+		
 	public:
-		Score(EState stateEnum) { mStateEnum = stateEnum; Score::Init();}
+		Score(EState stateEnum, string score, EPlayer playerChoice) { mStateEnum = stateEnum; tempScore = score; mPlayer = playerChoice; Score::Init(); }
 		~Score() {}
 
 		void Init();

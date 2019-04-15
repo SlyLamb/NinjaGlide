@@ -38,6 +38,11 @@ namespace NinjaGlide
 		return mPlayer;
 	}
 
+	string IState::GetScore()
+	{
+		return tempScore;
+	}
+
 	//----------------------------------------------------------------------
 	// Main Menu class
 	//----------------------------------------------------------------------
@@ -217,6 +222,26 @@ namespace NinjaGlide
 	{
 		mAsset.LoadTexture("Score", BG_SCORE_FILEPATH);
 		background.setTexture(mAsset.GetTexture("Score"));
+
+		if (mPlayer == EPlayer::SANGE)
+		{
+			mAsset.LoadTexture("DeadSange", DEAD_SANGE);
+			playerSprite.setTexture(mAsset.GetTexture("DeadSange"));
+		}
+		else
+		{
+			mAsset.LoadTexture("DeadYasha", DEAD_YASHA);
+			playerSprite.setTexture(mAsset.GetTexture("DeadYasha"));
+		}
+		playerSprite.setScale(0.4, 0.4);
+		playerSprite.setPosition((WINDOW_WIDTH / 2) - (playerSprite.getGlobalBounds().width / 2), WINDOW_HEIGT / 2);
+
+		mAsset.LoadFont("Arial", ARIAL_FILEPATH);
+		scoreTxt.setFont(mAsset.GetFont("Arial"));
+		scoreTxt.setString("SCORE: " + tempScore);
+		scoreTxt.setCharacterSize(20);
+		scoreTxt.setFillColor(sf::Color::White);
+		scoreTxt.setPosition(5, 5);
 	}
 
 	void Score::Update(float dt, sf::RenderWindow &mWindow) {}
@@ -238,6 +263,8 @@ namespace NinjaGlide
 	{
 		mWindow.clear();
 		mWindow.draw(background);
+		mWindow.draw(playerSprite);
+		mWindow.draw(scoreTxt);
 		mWindow.display();
 	}
 }

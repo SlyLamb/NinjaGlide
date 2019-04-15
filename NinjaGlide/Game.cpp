@@ -16,7 +16,8 @@ namespace NinjaGlide
 		{
 			return;	// exit function
 		}
-		EPlayer temp = EPlayer::NONE;
+		EPlayer tempPlayer = EPlayer::NONE;
+		string mScore = "";
 		EState currentStateEnum = mState->GetState();
 		switch (currentStateEnum) 
 		{
@@ -25,13 +26,15 @@ namespace NinjaGlide
 			mState = new Menu(currentStateEnum);
 			break;
 		case EState::GAME:
-			temp = mState->GetPlayer();
+			tempPlayer = mState->GetPlayer();
 			delete mState;
-			mState = new InGame(currentStateEnum, temp);
+			mState = new InGame(currentStateEnum, tempPlayer);
 			break;
 		case EState::SCORE:
+			tempPlayer = mState->GetPlayer();
+			mScore = mState->GetScore();
 			delete mState;
-			mState = new Score(currentStateEnum);
+			mState = new Score(currentStateEnum, mScore, tempPlayer);
 			break;
 		}
 	}
