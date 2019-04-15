@@ -157,6 +157,16 @@ namespace NinjaGlide
 		player->Animate(dt);
 		player->Update(dt);
 
+		std::vector<sf::Sprite> projectileSprites = mProjectile->GetSprites();
+
+		for (unsigned int i = 0; i < projectileSprites.size(); ++i )
+		{
+			if (mCollision.CheckCollision(player->GetSprite(), projectileSprites.at(i)))	// first argument is scaled by 0.8 and second by 0.5
+			{
+				player->Died();
+			}
+		}
+
 		if (player->IsDead()) 
 		{
 			mStateEnum = EState::SCORE;

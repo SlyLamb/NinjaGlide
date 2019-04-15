@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Def.hpp"
+#include <vector>
 
 
 namespace NinjaGlide 
@@ -22,6 +23,8 @@ namespace NinjaGlide
 		void SpawnProjectile(Asset &asset, sf::RenderWindow &mWindow);
 		void MoveProjectile(float dt);
 		void DrawProjectiles(sf::RenderWindow &mWindow);
+
+		const std::vector<sf::Sprite> &GetSprites() const;
 	};
 
 }

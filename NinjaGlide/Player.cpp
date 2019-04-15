@@ -112,4 +112,11 @@ namespace NinjaGlide
 		if (dead) { return true; }
 		return false;
 	}
+
+	void Player::Died() { dead = true; }
+
+	const sf::Sprite &Player::GetSprite() const
+	{
+		return playerSprite;
+	}
 }

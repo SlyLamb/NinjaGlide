@@ -6,6 +6,7 @@
 #include "Projectile.hpp"
 #include "Def.hpp"
 #include "Player.hpp"
+#include "Collision.hpp"
 
 namespace NinjaGlide
 {
@@ -85,6 +86,7 @@ namespace NinjaGlide
 		Player *player;
 		Projectile *mProjectile;
 		sf::Clock clock;
+		Collision mCollision;
 
 	public:
 		InGame(EState stateEnum, EPlayer playerChoice) { mStateEnum = stateEnum; mPlayer = playerChoice; InGame::Init(); }

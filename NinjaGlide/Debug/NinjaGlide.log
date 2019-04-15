@@ -1,2 +1,19 @@
-﻿  Player.cpp
+﻿  Collision.cpp
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\collision.cpp(12): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\collision.cpp(13): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  State.cpp
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  main.cpp
+d:\documents\projects\sfml_games\ninjaglide\ninjaglide\projectile.hpp(20): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   NinjaGlide.vcxproj -> d:\Documents\Projects\SFML_Games\NinjaGlide\Debug\NinjaGlide.exe

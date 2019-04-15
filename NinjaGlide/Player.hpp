@@ -28,6 +28,8 @@ namespace NinjaGlide
 		void Fly();
 		bool IsFalling();
 		bool IsDead();
+		void Died();
+		const sf::Sprite &GetSprite() const;
 	};
 }
 

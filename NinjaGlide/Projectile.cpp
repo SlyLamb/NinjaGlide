@@ -16,7 +16,7 @@ namespace NinjaGlide
 
 		sf::Sprite mSprite(asset.GetTexture("Projectile"));
 		mSprite.setPosition(mWindow.getSize().x, randNum);
-		mSprite.setScale(0.7, 0.7);
+		mSprite.setScale(0.5, 0.5);
 	
 		projectiles.push_back(mSprite);
 	}
@@ -36,4 +36,8 @@ namespace NinjaGlide
 		}
 	}
 
+	const std::vector<sf::Sprite> &Projectile::GetSprites() const 
+	{
+		return projectiles;
+	}
 }
