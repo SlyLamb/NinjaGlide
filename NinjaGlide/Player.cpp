@@ -3,6 +3,11 @@
 
 namespace NinjaGlide
 {
+	/**
+	*	constructor
+	*	'asset' for managing textures
+	*	'playerChoice' 1 for Sange (boy) and 0 for Yasha (girl)
+	*/
 	Player::Player(Asset &asset, bool playerChoice)
 	{
 		It = 0;
@@ -45,11 +50,17 @@ namespace NinjaGlide
 		dead = false;
 	}
 
+	/**
+	*	draws the player
+	*/
 	void Player::Draw(sf::RenderWindow &mWindow)
 	{
 		mWindow.draw(playerSprite);
 	}
 
+	/**
+	* animates the player gliding
+	*/
 	void Player::Animate(float dt)
 	{
 		if (mClock.getElapsedTime().asSeconds() > ANIMATION_RATE / animationFrames.size())
@@ -67,12 +78,18 @@ namespace NinjaGlide
 		}
 	}
 
+	/**
+	*	returns true if the player is falling, otherwise false
+	*/
 	bool Player::IsFalling()
 	{
 		if (falling) { return true; }
 		return false;
 	}
 
+	/**
+	* updates the player states of moving or dying
+	*/
 	void Player::Update(float dt)
 	{
 		if (playerSprite.getGlobalBounds().top < 0)
@@ -101,20 +118,32 @@ namespace NinjaGlide
 		}
 	}
 
+	/**
+	*	slowly moves the player upwards
+	*/
 	void Player::Fly()
 	{
 		glideClock.restart();
 		falling = false;
 	}
 
+	/**
+	* returns true if the player has died
+	*/
 	bool Player::IsDead()
 	{
 		if (dead) { return true; }
 		return false;
 	}
 
+	/**
+	*	sets the player 'dead' to true
+	*/
 	void Player::Died() { dead = true; }
 
+	/**
+	*	returns the player sprite used for collision detection
+	*/
 	const sf::Sprite &Player::GetSprite() const
 	{
 		return playerSprite;

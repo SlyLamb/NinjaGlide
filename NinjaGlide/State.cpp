@@ -8,16 +8,25 @@ namespace NinjaGlide
 	// IState class  
 	//----------------------------------------------------------------------
 
+	/**
+	*	returns the state enum
+	*/
 	EState IState::GetState() 
 	{
 		return mStateEnum;
 	}
 
+	/**
+	*	sets the state enum
+	*/
 	void IState::SetState(EState stateEnum)
 	{
 		mStateEnum = stateEnum;
 	}
 
+	/**
+	*	returns true if the state has changed
+	*/
 	bool IState::hasStateChanged() 
 	{
 		if(stateChanged)
@@ -28,16 +37,25 @@ namespace NinjaGlide
 		return false;
 	}
 
+	/**
+	*	changes the state
+	*/
 	void IState::stateChange()
 	{
 		stateChanged = true;
 	}
 
+	/**
+	*	returns the player choice enum
+	*/
 	EPlayer IState::GetPlayer()
 	{
 		return mPlayer;
 	}
 
+	/**
+	*	returns the score
+	*/
 	string IState::GetScore()
 	{
 		return tempScore;
@@ -47,6 +65,9 @@ namespace NinjaGlide
 	// Main Menu class
 	//----------------------------------------------------------------------
 
+	/**
+	*	initialize the state
+	*/
 	void Menu::Init() 
 	{
 		mAsset.LoadTexture("MainMenu", BG_MENU_FILEPATH);
@@ -68,8 +89,14 @@ namespace NinjaGlide
 		ninjaGirl.setPosition((WINDOW_WIDTH / 4) * 2.5, (WINDOW_HEIGT / 2) - 30);
 	}
 
+	/**
+	*	update the state
+	*/
 	void Menu::Update(float dt, sf::RenderWindow &mWindow) {}
 
+	/**
+	*	process the state inputs
+	*/
 	void Menu::Input(sf::RenderWindow &mWindow)
 	{
 		sf::Event e;
@@ -81,12 +108,14 @@ namespace NinjaGlide
 			}
 			if (mInput.IsObjectClicked(ninjaBoy, sf::Mouse::Left, mWindow))
 			{
+				// switch to InGame state with Sange
 				mPlayer = EPlayer::SANGE;
 				mStateEnum = EState::GAME;
 				stateChanged = true;
 			}
 			if (mInput.IsObjectClicked(ninjaGirl, sf::Mouse::Left, mWindow))
 			{
+				// switch to InGame state with Yasha
 				mPlayer = EPlayer::YASHA;
 				mStateEnum = EState::GAME;
 				stateChanged = true;
@@ -94,6 +123,9 @@ namespace NinjaGlide
 		}
 	}
 
+	/**
+	*	draw the state drawables
+	*/
 	void Menu::Draw(float dt, sf::RenderWindow &mWindow)
 	{
 		mWindow.clear();
@@ -109,6 +141,9 @@ namespace NinjaGlide
 	// In Game class
 	//----------------------------------------------------------------------
 
+	/**
+	*	initialize the state
+	*/
 	void InGame::Init() 
 	{
 		mAsset.LoadTexture("InGame", BG_GAME_FILEPATH);
@@ -142,13 +177,14 @@ namespace NinjaGlide
 
 		if(mPlayer == EPlayer::SANGE)
 		{
-			player = new Player(mAsset, true);
+			player = new Player(mAsset, true);	// pass true for Sange textures
 		}
 		else 
 		{
-			player = new Player(mAsset, false);
+			player = new Player(mAsset, false); // pass false for Yasha textures
 		}
 
+		// setup score text
 		mAsset.LoadFont("Arial", ARIAL_FILEPATH);
 		scoreTxt.setFont(mAsset.GetFont("Arial"));
 		scoreTxt.setString("0");
@@ -157,22 +193,30 @@ namespace NinjaGlide
 		scoreTxt.setPosition(5,5);
 	}
 
+	/**
+	*	update the state
+	*/
 	void InGame::Update(float dt, sf::RenderWindow &mWindow)
 	{
+		// move projectiles
 		mProjectile->MoveProjectile(dt);
 		if(clock.getElapsedTime().asSeconds() > PROJECTILE_FREQ)
 		{
+			// spawn more projectiles based on the defined frequency
 			mProjectile->SpawnProjectile(mAsset, mWindow);
 			clock.restart();
 		}
 		player->Animate(dt);
 		player->Update(dt);
 
+		// check for collisions between player and projectiles
 		std::vector<sf::Sprite> projectileSprites = mProjectile->GetSprites();
 
 		for (unsigned int i = 0; i < projectileSprites.size(); ++i )
 		{
-			if (mCollision.CheckCollision(player->GetSprite(), projectileSprites.at(i)))	// first argument is scaled by 0.8 and second by 0.5
+			// first argument is scaled by 0.8 and second by 0.5
+			// always use player first and projectiles second
+			if (mCollision.CheckCollision(player->GetSprite(), projectileSprites.at(i)))	
 			{
 				player->Died();
 			}
@@ -180,14 +224,19 @@ namespace NinjaGlide
 
 		if (player->IsDead()) 
 		{
+			// switch state if player has died
 			mStateEnum = EState::SCORE;
 			stateChanged = true;
 		}
+		// setup score for displaying
 		mScore = mProjectile->GetScore();
 		tempScore = to_string(mScore);
 		scoreTxt.setString("SCORE: " + tempScore);
 	}
 
+	/**
+	*	process the state inputs
+	*/
 	void InGame::Input(sf::RenderWindow &mWindow) 
 	{
 		sf::Event e;
@@ -204,6 +253,9 @@ namespace NinjaGlide
 		}
 	}
 
+	/**
+	*	draw the state drawables
+	*/
 	void InGame::Draw(float dt, sf::RenderWindow &mWindow) 
 	{
 		mWindow.clear();
@@ -218,6 +270,9 @@ namespace NinjaGlide
 	// Game Over and final score class
 	//----------------------------------------------------------------------
 
+	/**
+	*	initialize the state
+	*/
 	void Score::Init() 
 	{
 		mAsset.LoadTexture("Score", BG_SCORE_FILEPATH);
@@ -244,8 +299,14 @@ namespace NinjaGlide
 		scoreTxt.setPosition(5, 5);
 	}
 
+	/**
+	*	update the state
+	*/
 	void Score::Update(float dt, sf::RenderWindow &mWindow) {}
 
+	/**
+	* process state inputs
+	*/
 	void Score::Input(sf::RenderWindow &mWindow) 
 	{
 		sf::Event e;
@@ -257,6 +318,7 @@ namespace NinjaGlide
 			}
 			if (mInput.IsObjectClicked(playerSprite, sf::Mouse::Left, mWindow))
 			{
+				// switch to Menu state
 				mPlayer = EPlayer::NONE;
 				mStateEnum = EState::MENU;
 				stateChanged = true;
@@ -264,6 +326,9 @@ namespace NinjaGlide
 		}
 	}
 
+	/**
+	*	draw state drawables
+	*/
 	void Score::Draw(float dt, sf::RenderWindow &mWindow) 
 	{
 		mWindow.clear();

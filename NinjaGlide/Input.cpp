@@ -2,6 +2,9 @@
 
 namespace NinjaGlide
 {
+	/**
+	*	returns true if a sprite was clicked, otherwise false
+	*/
 	bool Input::IsObjectClicked(sf::Sprite mObject, sf::Mouse::Button mButton, sf::RenderWindow &window)
 	{
 		if (sf::Mouse::isButtonPressed(mButton)) 
@@ -16,6 +19,9 @@ namespace NinjaGlide
 		return false;
 	}
 
+	/**
+	*	returns (x,y) mouse position in relation to the window
+	*/
 	sf::Vector2i Input::GetMousePos(sf::RenderWindow &window) 
 	{
 		return sf::Mouse::getPosition(window);
